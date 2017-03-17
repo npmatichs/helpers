@@ -5,18 +5,26 @@
  */
 let util = require('util');
 let _functions = require('./functions');
+/** global: OBJ_KEY */
 const OBJ_KEY = 2;
+/** global: OBJ_BOTH */
 const OBJ_BOTH = 1;
+/** global: OBJ_VAL */
 const OBJ_VAL = 3;
 
 // Data Types.
+/** global: NUMBER */
 const NUMBER = 'number';
+/** global: OBJECT */
 const OBJECT = 'object';
+/** global: STRING */
 const STRING = 'string';
+/** global: BOOL */
 const BOOL = 'boolean';
+/** global: FUNCTION */
 const FUNCTION = 'function';
+/** global: NAN */
 const NAN = 'NaN';
-
 
 exports.OBJ_BOTH = 1;
 exports.OBJ_KEY = 2;
@@ -28,7 +36,8 @@ exports.BOOL = BOOL;
 exports.FUNCTION = FUNCTION;
 exports.NAN = NAN;
 
-exports.getFunctions = () => {
+exports.getFunctions = () => 
+{
     return _functions;
 };
 
@@ -40,38 +49,42 @@ exports.getFunctions = () => {
 /**
  * Check if incoming value is number.
  *
- * @param value
- * @return {boolean}
+ * @param {*} value
+ * @return {Boolean}
  */
-exports.isNumber = value => {
+exports.isNumber = value => 
+{
     return !isNaN(parseFloat(value)) && isFinite(value);
 };
+
 /**
  * Check if incoming value is STRICT number.
  * @warning this function returns true only if incoming number. not stringify number.
  *
- * @param value
- * @return {boolean}
+ * @param {*} value
+ * @return {Boolean}
  */
-exports.is_number = value => {
+exports.is_number = value => 
+{
     return !isNaN(parseFloat(value)) && isFinite(value) && typeof value === NUMBER;
 };
 
 /**
  * Check if incoming value numeric. If number is a string, convert it and check.
  *
- * @param value
- * @return {boolean}
+ * @param {*} value
+ * @return {Boolean}
  */
-exports.isNumeric = value => {
+exports.isNumeric = value => 
+{
     return !isNaN(Number(value));
 };
 
 /**
  * @alias for exports.isNumeric();
  *
- * @param value
- * @return {boolean}
+ * @param {*} value
+ * @return {Boolean}
  */
 exports.is_numeric = value => {
     return !isNaN(Number(value));
@@ -80,57 +93,64 @@ exports.is_numeric = value => {
 /**
  * Check if type value is boolean.
  *
- * @param value
- * @returns {boolean}
+ * @param {*} value
+ * @returns {Boolean}
  */
-exports.isBool = value => {
+exports.isBool = value => 
+{
     return (typeof value == BOOL);
 };
+
 /**
  * Check if type value is boolean.
  *
- * @param value
+ * @param {*} value
  * @returns {boolean}
  */
-exports.is_bool = value => {
+exports.is_bool = value => 
+{
     return (typeof value == BOOL);
 };
 
 /**
  * Check if incoming value is object..
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isObject = value => {
+exports.isObject = value => 
+{
     return (typeof value == OBJECT || value instanceof Object);
 };
 /**
  * Check if incoming value is object..
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.is_object = value => {
+exports.is_object = value => 
+{
     return (typeof value == OBJECT || value instanceof Object);
 };
 
 /**
  * Check if value is string.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isString = value => {
+exports.isString = value => 
+{
     return (typeof value === STRING || value instanceof String);
 };
 /**
  * Check if value is string.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.is_string = value => {
+exports.is_string = value => 
+{
     return (typeof value === STRING || value instanceof String);
 };
 
@@ -140,7 +160,8 @@ exports.is_string = value => {
  * @param {String} value
  * @return {boolean}
  */
-exports.isHex = value => {
+exports.isHex = value => 
+{
     let re = /^#[0-9A-F]{6}$/i;
 
     return re.test(value);
@@ -152,83 +173,127 @@ exports.isHex = value => {
  * @param {String} value
  * @return {boolean}
  */
-exports.is_hex = value => {
+exports.is_hex = value => 
+{
     let re = /^#[0-9A-F]{6}$/i;
 
     return re.test(value);
 };
+
 /**
  * Check if value is undefined
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isUndef = value => {
+exports.isUndef = value => 
+{
     return value === undefined;
 };
+
 /**
  * Check if value is undefined
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.is_undef = value => {
+exports.is_undef = value => 
+{
     return value === undefined;
 };
 
 /**
  * Check if value is a function.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isCallable = value => {
+exports.isCallable = value => 
+{
     return typeof value === FUNCTION;
 };
+
 /**
  * Check if value is a function.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.is_callable = value => {
+exports.is_callable = value => 
+{
     return typeof value === FUNCTION;
 };
 
 /**
  * Check if value is null.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isNull = value => {
+exports.isNull = value => 
+{
     return value === null;
 };
+
 /**
  * Check if value is null.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.is_null = value => {
+exports.is_null = value => 
+{
     return value === null;
 };
 
 /**
  * Check if value exists in object as value of some key
  *
- * @param value
- * @param object
+ * @param {*} value
+ * @param {Object} object
  * @return {boolean}
  */
-exports.inObject = (value, object) => {
+exports.inObject = (value, object) => 
+{
     let result = false;
 
-    Object.keys(object).forEach(key => {
-        if (object[key] == value) {
+    let _keys_object = Object.keys(object);
+
+    for(let i = 0; i < _keys_object.length; i++)
+    {
+        let key = _keys_object[i];
+
+        if(object[key] == value)
+        {
             result = true;
         }
-    });
+    }
+
+    return result;
+};
+
+/**
+ * Check if value exists in object as value of some key
+ *
+ * @param {String} value
+ * @param {Object} object
+ * @return {boolean}
+ */
+exports.in_object = (value, object) => 
+{
+    let result = false;
+
+    let _keys_object = Object.keys(object);
+
+    for(let i = 0; i < _keys_object.length; i++)
+    {
+        let key = _keys_object[i];
+
+        if(object[key] == value)
+        {
+            result = true;
+        }
+    }
 
     return result;
 };
@@ -239,7 +304,8 @@ exports.inObject = (value, object) => {
  * @param obj
  * @returns {boolean}
  */
-exports.is_promise = obj => {
+exports.is_promise = obj => 
+{
     return obj instanceof Promise;
 };
 
@@ -249,37 +315,20 @@ exports.is_promise = obj => {
  * @param obj
  * @returns {boolean}
  */
-exports.isPromise = obj => {
+exports.isPromise = obj => 
+{
     return obj instanceof Promise;
-};
-
-/**
- * Check if value exists in object as value of some key
- *
- * @param value
- * @param object
- * @return {boolean}
- */
-exports.in_object = (value, object) => {
-    let result = false;
-
-    Object.keys(object).forEach(key => {
-        if (object[key] == value) {
-            result = true;
-        }
-    });
-
-    return result;
 };
 
 /**
  * Check if value is set.
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.isset = value => {
-    return value !== undefined;
+exports.isset = value => 
+{
+    return value !== undefined && value !== void 0;
 };
 
 /** + -------------------------------------------
@@ -290,42 +339,62 @@ exports.isset = value => {
 /**
  * Check if value is empty string. Can be used on {String|Object}
  *
- * @param value
+ * @param {*} value
  * @return {boolean}
  */
-exports.empty = value => {
-
-    if (value === undefined || null == value || null === value || value === false) {
+exports.empty = value => 
+{
+    if (value === undefined 
+        || null == value 
+        || null === value 
+        || value === false) 
+    {
         return true;
     }
 
-    if (value instanceof Array) {
+    if (value instanceof Array) 
+    {
         return Object.keys(value).length === 0;
     }
 
-    if (typeof value === OBJECT || value instanceof Object) {
+    if (typeof value === OBJECT || value instanceof Object) 
+    {
         return Object.keys(value).length === 0;
     }
 
     return value.length === 0;
 };
-exports.is_empty = value => {
+
+/**
+ * @alias to fucntion empty.
+ *
+ * @param {*} value
+ * @return {boolean} 
+ */
+exports.is_empty = value => 
+{
     return exports.empty(value);
 };
 
 /**
  * Returns lust element|key|value from object.
  *
- * @param object
- * @param element {1: element(both), 2: only key, 3: value}
+ * @param {Object} object
+ * @param {Number} element {1: element(both), 2: only key, 3: value}
+ * @return {*}
  */
-exports.last = (object, element = OBJ_KEY) => {
-    if (object !== null || object !== undefined) {
+exports.last = (object, element = OBJ_KEY) => 
+{
+    if (object !== null || object !== undefined) 
+    {
         let i = 0, last = {};
 
-        Object.keys(object).forEach(key => {
-            if (i == (Object.keys(object).length - 1)) {
-                switch (element) {
+        Object.keys(object).forEach(key => 
+        {
+            if (i == (Object.keys(object).length - 1))
+            {
+                switch (element) 
+                {
                     case OBJ_BOTH :
                         last[key] = object[key];
                         break;
@@ -352,37 +421,33 @@ exports.last = (object, element = OBJ_KEY) => {
 /**
  * Get the first element from object.
  *
- * @param object
- * @param element
+ * @param {Object} object
+ * @param {Number} element {1: element(both), 2: only key, 3: value}
  * @return {*}
  */
-exports.first = (object, element = OBJ_KEY) => {
-
-    // Object.keys(obj)[0]; // It better
-    // -- or --
-    // for (var a in obj) return a;
-
-    if (object !== null || object !== undefined) {
+exports.first = (object, element = OBJ_KEY) => 
+{
+    if (object !== null || object !== undefined)
+    {
         let i = 0, first = {};
 
-        Object.keys(object).forEach(key => {
-            if (i == 0) {
-                switch (element) {
+        Object.keys(object).forEach(key => 
+        {
+            if (i == 0) 
+            {
+                switch (element)
+                {
                     case OBJ_BOTH :
                         first[key] = object[key];
                         break;
-
                     case OBJ_VAL :
                         first = object[key];
                         break;
-
                     default:
                         first = key;
                         break;
                 }
             }
-
-            // break;
             i++;
         });
 
@@ -395,23 +460,25 @@ exports.first = (object, element = OBJ_KEY) => {
 /**
  * Make first character of string in uppercase.
  *
- * @param string
+ * @param {String} string
  * @return {string}
  */
-exports.uc_first = string => {
+exports.uc_first = string => 
+{
     return string
         ? string.charAt(0).toUpperCase() + string.slice(1)
         : string;
 };
 
 /**
- * The same like php. Compares to strings.
+ * Binary safe string comparison.
  *
- * @param str1
- * @param str2
+ * @param {String} str1
+ * @param {String} str2
  * @return {number}
  */
-exports.strcmp = (str1, str2) => {
+exports.strcmp = (str1, str2) => 
+{
     let out = -1;
 
     if (str1.length < str2.length) {
@@ -428,28 +495,34 @@ exports.strcmp = (str1, str2) => {
 /**
  * String to lower case.
  *
- * @param string
+ * @param {String} string
  * @return {string}
  */
-exports.to_lower_case = string => {
+exports.to_lower_case = string => 
+{
     return String(string).toLowerCase();
 };
 
 /**
- * The same as php explode function.
+ * Returns an array of strings, each of which is a substring 
+ * of string formed by splitting it on boundaries formed by 
+ * the string delimiter.
  *
- * @param delimiter
- * @param string
- * @param limit
+ * @param {String} delimiter The boundary string.
+ * @param {String} string The input string.
+ * @param {Number} limit 
  * @return array
  */
-exports.explode = (delimiter, string, limit = 0) => {
+exports.explode = (delimiter, string, limit = 0) => 
+{
     let out = string.split(delimiter);
 
-    if (limit) {
+    if (limit) 
+    {
         let temp = [];
 
-        for (let i = 0; i < limit; i++) {
+        for (let i = 0; i < limit; i++) 
+        {
             temp[i] = out[i];
         }
 
@@ -465,29 +538,45 @@ exports.explode = (delimiter, string, limit = 0) => {
  */
 
 /**
- * Merge arrays or objects.
+ * Merge objects with modifing the first object.
  *
- * @param object1
- * @param object2
- * @return {*}
+ * @param {Object} object1
+ * @param {Object} object2
+ * @return {Object}
  */
-exports.merge = (object1, object2) => {
+exports.merge = (object1, object2) => 
+{
+    let _keys_object = Object.keys(object2);
 
-    Object.keys(object2).forEach(key => {
+    for(let i = 0; i < _keys_object.length; i++)
+    {
+        let key = _keys_object[i];
+
         object1[key] = object2[key];
-    });
+    }
 
     return object1;
 };
 
-exports.object_merge = (object1, object2) => {
+/**
+ * @deprecated This method is deprecated.
+ * Merge two objects and returns the result in a new object.
+ * 
+ * @param {Object} object1
+ * @param {Object} object2
+ * @return {Object}
+ */
+exports.object_merge = (object1, object2) => 
+{
     let object3 = [];
 
-    Object.keys(object1).forEach(key => {
+    Object.keys(object1).forEach(key => 
+    {
         object3[key] = object1[key];
     });
 
-    Object.keys(object2).forEach(key => {
+    Object.keys(object2).forEach(key => 
+    {
         object3[key] = object2[key];
     });
 
@@ -497,19 +586,21 @@ exports.object_merge = (object1, object2) => {
 /**
  * Merge objects or arrays with their keys.
  *
- * @param object1
- * @param object2
+ * @param {Object} object1
+ * @param {Object} object2
  * @return {*}
  */
-exports.merge_options = (object1, object2) => {
-
+exports.merge_options = (object1, object2) => 
+{
     var object3 = {};
 
-    Object.keys(object1).forEach(key => {
+    Object.keys(object1).forEach(key => 
+    {
         object3[key] = object1[key];
     });
 
-    Object.keys(object2).forEach(key => {
+    Object.keys(object2).forEach(key => 
+    {
         object3[key] = object2[key];
     });
 
@@ -526,11 +617,14 @@ exports.merge_options = (object1, object2) => {
  * @param {Function|Boolean|String} callback
  * return {*}
  */
-exports.object_merge_filter = (object1, object2, callback) => {
-    Object.keys(object2).forEach(key => {
+exports.object_merge_filter = (object1, object2, callback) => 
+{
+    Object.keys(object2).forEach(key => 
+    {
         let value = object2[key];
 
-        if (callback(key, value)) {
+        if (callback(key, value)) 
+        {
             object1[key] = object2[key];
         }
     });
@@ -541,18 +635,23 @@ exports.object_merge_filter = (object1, object2, callback) => {
 /**
  * Foreach for objects.
  *
- * @param object
- * @param callback
+ * @param {Object} object
+ * @param {Function} callback
+ * @return {undefined}
  */
-exports.each = (object, callback) => {
-
+exports.each = (object, callback) => 
+{
     if (object)
-        Object.keys(object).forEach(key => {
-            let value = object[key];
+    {
+        let _keys_object = Object.keys(object);
+
+        for(let i = 0; i < _keys_object.length; i++)
+        {
+            let value = object[_keys_object[i]];
 
             callback(value, key);
-        });
-
+        }
+    }
 };
 
 /**
@@ -847,6 +946,8 @@ exports.exists_in_object = (search, object, needle = OBJ_VAL) => {
                 case OBJ_BOTH:
                     temp = String(search) == String(object_value) && String(search) == String(object_key);
                     break;
+                default : 
+                    break;
             }
         }
     });
@@ -1094,6 +1195,8 @@ exports.sprintf = (...args) => {
             case '#':
                 prefixBaseX = true;
                 break;
+            default :
+                break; 
         }
 
         // parameters may be null, undefined, empty-string or real valued
@@ -1220,6 +1323,7 @@ exports.valueOf = (_variable, result_type = 'unchange', ...args) =>
             break;
         case BOOL :
             _value = !!_value;
+            break;
         default :
             break;
     }
@@ -1255,6 +1359,9 @@ exports.__implementMethods = (method, instance) => {
             {
                 check(instance, method[i]);
             }
+            break;
+
+        default :
             break;
     }
 };
