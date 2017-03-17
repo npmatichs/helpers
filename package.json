@@ -15,5 +15,16 @@
     "helpers"
   ],
   "author": "magrigoroe",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "html-to-text": "^3.2.0",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.17.1",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-beta11",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0",
+    "util": "^0.10.3"
+  }
 }

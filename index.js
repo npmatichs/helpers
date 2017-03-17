@@ -4,6 +4,7 @@
  * @dependencies: ECMAScript 6.0
  */
 let util = require('util');
+let _functions = require('./functions');
 const OBJ_KEY = 2;
 const OBJ_BOTH = 1;
 const OBJ_VAL = 3;
@@ -26,6 +27,10 @@ exports.STRING = STRING;
 exports.BOOL = BOOL;
 exports.FUNCTION = FUNCTION;
 exports.NAN = NAN;
+
+exports.getFunctions = () => {
+    return _functions;
+};
 
 /** + -------------------------------------------
  *  |    Boolean helpers
