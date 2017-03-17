@@ -1,0 +1,19 @@
+{
+  "name": "helpers",
+  "version": "1.0.0",
+  "description": "node js helpers functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@10.1.1.159:npm-packages/helpers.git"
+  },
+  "keywords": [
+    "nodejs",
+    "helpers"
+  ],
+  "author": "magrigoroe",
+  "license": "ISC"
+}
